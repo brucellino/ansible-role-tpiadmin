@@ -1,0 +1,13 @@
+---
+# defaults file for ansible-role-tpiadmin
+prerequisites:
+  - i2c-tools
+  - libi2c-dev
+  - libi2c0
+  - liblgpio-dev
+  - liblgpio1
+  - python3-rgpio
+  - python3-smbus
+  - python3-smbus2
+tpiadm_repo: https://github.com/thorsten-l/tpiadm
+tpiadm_version: 1.0.1

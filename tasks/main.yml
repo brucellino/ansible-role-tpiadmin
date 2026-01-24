@@ -1,0 +1,19 @@
+---
+# tasks file for ansible-role-tpiadmin
+- name: Ensure prerequisites are installed
+  become: true
+  ansible.builtin.package:
+    name: "{{ prerequisites }}"
+    state: present
+
+- name: clone TPIADM repository
+  ansible.builtin.git:
+    repo: "{{ tpiadm_repo }}"
+    version: "{{ tpiadm_version }}"
+    dest: "/home/becker/tpiadm"
+    clone: true
+
+- name: Build TPIADM
+  community.general.make:
+    chdir: "/home/becker/tpiadm"
+    target: all
